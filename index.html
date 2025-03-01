@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="maincontainer">
+        <h1 class="text">Rock Paper Scissor</h1>       
+        <p class="text">Select your ammo:</p>    
+
+        <span>
+            <img src="images/rock.png" alt="This is a picture of rock hand" onclick="handleChoice('✊🏻')">    
+            <img src="images/paper.png" alt="This is a picture of paper hand" onclick="handleChoice('📃')">
+            <img src="images/scissor.png" alt="This is a picture of scissor hand" onclick="handleChoice('✂️')">
+        </span>     
+
+        <div id="modeLevelContainer">
+            <div>
+                <button id="mode">1 Player</button>
+                <div id="content1" class="contents">
+                    <h4 onclick="enableLevel()">1 Player</h4>   
+                    <h4 onclick="disableLevel()">2 Player</h4>             
+                </div>
+            </div>
+        
+            <div>
+                <button id="level">Normal</button>   
+                <div id="content2" class="contents">
+                    <h4 onclick="aiDifficulty('Easy')">Easy</h4>   
+                    <h4 onclick="aiDifficulty('Normal')">Normal</h4>
+                    <h4 onclick="aiDifficulty('Hard')">Hard</h4>   
+                    <h4 onclick="aiDifficulty('Expert')">Expert</h4>
+                </div>
+            </div>
+        </div>      
+
+        <p class="text" style="font-weight: bold" id="chosenResult">You: --- Opponent:</p>
+        <p class="text" style="font-weight: bold" id="resultDisplay">Who will win?</p>
+
+        <div id="subcontainer">
+            <div class="text" id="opponent1Display">Your score: 
+                <span id="opponent1DisplayScore">0</span>
+            </div>
+                
+            <div class="text" id="opponent2Display">Opponent's score: 
+                <span id="opponent2DisplayScore">0</span>
+            </div>
+            
+            <h5 class="text" id="drawsDisplay">Draws: 0</h5>
+
+            <button onclick="handleReset()">Reset</button>    
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
