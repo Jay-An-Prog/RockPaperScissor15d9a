@@ -1,0 +1,157 @@
+/*apply for whole website*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(6, 248, 236), rgb(3, 250, 126), rgb(21, 248, 0));
+}
+
+/*main container*/
+#maincontainer {
+    width: 700px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+/*container inside a main container*/
+#subcontainer {
+    width: 100%;
+    height: 148px;
+    border: solid 1px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(7, 203, 218);
+}
+#subcontainer button {   
+    width: 4em;
+    border: solid 1px;
+    border-radius: 8px;
+    padding: 3px; 
+    font-size: 0.9em;
+    transition: 0.2s ease;
+    background: rgb(96, 255, 221); 
+}
+#subcontainer button:hover {
+    background: rgb(3, 255, 200);
+    cursor: pointer;
+} 
+#subcontainer button:active {
+    font-size: 0.8em;
+}
+#subcontainer .text {
+    color: white;
+}
+
+/*mode & level container*/
+#modeLevelContainer {
+    width: 280px;
+    margin: 15px;
+    display: flex;   
+    gap: 80px;
+}
+#modeLevelContainer button {   
+    width: 100px;
+    border: solid 1px; 
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: rgb(96, 255, 221);
+}
+#modeLevelContainer .contents {
+    display: none;
+    position: absolute;
+    font-size: 13px;
+    box-shadow: 2px 2px 5px black;
+    min-width: 100px;
+    background: rgb(89, 231, 200);
+    z-index: 10;
+}
+#mode:hover + #content1, #content1:hover {
+    display: block;
+}
+#level:hover + #content2, #content2:hover {
+    display: block;
+}
+.contents h4:hover {
+    background: rgb(67, 180, 156);
+}
+
+/*img style and hover effect*/
+img { 
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 250px;
+    transition: 0.2s ease;
+}
+img:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
+
+/*text styling*/
+.text {
+    padding: 10px;
+}
+h1 {
+    margin: 10px;
+}
+h4 {
+    padding: 10px;
+    border: solid 1px; 
+} 
+
+/*JavaScript interaction*/
+button:disabled {
+    pointer-events: none; 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+}
+.blueText {
+    color: blue;
+}
+.redText {
+    color: red;
+}
+
+@media screen and (max-width: 600px) {
+    #maincontainer {
+        width: 85%;
+    }
+    #subcontainer {
+        width: 200px; 
+    }
+    #modeLevelContainer {
+        margin: 10px;
+        gap: 30px;
+        justify-content: center;
+    }
+    #modeLevelContainer button { 
+        width: 90px;
+    }
+    #modeLevelContainer .contents {
+        min-width: 90px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 12px;
+    }
+    img {
+        width: 60px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
