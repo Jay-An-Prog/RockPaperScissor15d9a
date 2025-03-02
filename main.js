@@ -1,4 +1,4 @@
-//Variables
+//Java variables
 const choices = ["✊🏻", "📃", "✂️"];
 let opponent1Score = 0;
 let opponent2Score = 0;
@@ -6,26 +6,39 @@ let drawScore = 0;
 let result;
 
 let opponent1Choice;
-let opponent2CHoice;
+let opponent2Choice;
 
 let difficulty = "Normal";
 
-let gate = false;
+let isGateOpen = false;
+
+//HTML-related variables
+let htmlModeButton = document.getElementById("mode-button");
+let htmlLevelButton = document.getElementById("level-button");
+
+let htmlChosenDisplay = document.getElementById("chosen-display");
+let htmlResultDisplay = document.getElementById("result-display");
+
+let htmlOpponent1Score = document.getElementById("opponent1-display");
+let htmlOpponent2Score = document.getElementById("opponent2-display");
+let htmlDrawDisplay = document.getElementById("draw-display");
 
 //Determine if player vs computer or player vs player
 function handleChoice(opponentChoice) {
-    if (level.disabled) {
-        resultDisplay.classList.remove("blueText","redText");      
-        if (!gate) {
+    if (htmlLevelButton.disabled) {
+        htmlResultDisplay.classList.remove("blue-text","red-text");      
+        if (!isGateOpen) {         
             opponent1Choice = opponentChoice;
-            chosenResult.textContent = "Player 1: ❓ --- Player 2: ";
-            resultDisplay.textContent = "Who will win?";
-            gate = true;
-        } else {
-            opponent2Choice = opponentChoice;   
-            chosenResult.textContent = "Player 1: "+opponent1Choice+" --- Player 2: "+opponent2Choice;   
+            isGateOpen = true;
+            
+            htmlChosenDisplay.textContent = "Player 1: ❓"+"\u00A0".repeat(6)+" Player 2: "+"\u00A0".repeat(4);
+            htmlResultDisplay.textContent = "Who will win?";          
+        } else {                         
+            opponent2Choice = opponentChoice;            
+            isGateOpen = false;
+            
+            htmlChosenDisplay.textContent = "Player 1: "+opponent1Choice+"\u00A0".repeat(6)+" Player 2: "+opponent2Choice;
             winCondition();
-            gate = false;
         }                   
     } else {        
         opponent1Choice = opponentChoice;
@@ -33,10 +46,11 @@ function handleChoice(opponentChoice) {
     }              
 }
 
-//update the difficulty status
-function aiDifficulty(status) {
-    difficulty = status;
-    level.textContent = status;
+//update the difficulty type
+function aiDifficulty(difType) {   
+    difficulty = difType; 
+    
+    htmlLevelButton.textContent = difType;
     handleReset();
 }
 
@@ -83,7 +97,7 @@ function aiChoice() {
             }
             break;
     }  
-    chosenResult.textContent = "You: "+opponent1Choice+" --- Computer: "+opponent2Choice;   
+    htmlChosenDisplay.textContent = "You: "+opponent1Choice+"\u00A0".repeat(6)+" Computer: "+opponent2Choice;
     winCondition();
 }
 
@@ -96,14 +110,14 @@ function winCondition() {
         if (opponent1Choice === "✊🏻" && opponent2Choice === "✂️" ||
             opponent1Choice === "📃" && opponent2Choice === "✊🏻" ||
             opponent1Choice === "✂️" && opponent2Choice === "📃") {
-            if (level.disabled) {
+            if (htmlLevelButton.disabled) {
                 result = "Player 1 win!";
             } else {
                 result = "You win!";
             }        
             opponent1Score ++;
         } else {
-            if (level.disabled) {
+            if (htmlLevelButton.disabled) {
                 result = "Player 2 win!";
             } else {
                 result = "Computer win!";
@@ -118,13 +132,13 @@ function winCondition() {
 function handleMode(modeType) {
     switch (modeType) {
         case "P-C":
-            document.getElementById("level").disabled = false;
-            mode.textContent = "1 Player";
-            handleReset();
+            document.getElementById("level-button").disabled = false;
+            htmlModeButton.textContent = "1 Player";   
+            handleReset();       
             break;
         case "P-P":
-            document.getElementById("level").disabled = true;
-            mode.textContent = "2 Player";
+            document.getElementById("level-button").disabled = true;
+            htmlModeButton.textContent = "2 Player";
             handleReset();
             break;
     }  
@@ -132,38 +146,38 @@ function handleMode(modeType) {
 
 //Reset and Display most information dynamically
 function handleReset() {
-    chosenResult.textContent = "You --- Opponent";
-    result = "Who will win?";
-
     opponent1Score = 0;
     opponent2Score = 0;
     drawScore = 0;
 
-    gate = false;
+    isGateOpen = false;
 
-    displayText();
+    result = "Who will win?";
+
+    htmlChosenDisplay.textContent = "You ⚔️ Opponent";
+    displayText();  
 }
 function displayText() {
-    resultDisplay.classList.remove("blueText","redText");
+    htmlResultDisplay.classList.remove("blue-text","red-text");
     switch (result) {
         case "Player 1 win!":
         case "You win!":
-            resultDisplay.classList.add("blueText");
+            htmlResultDisplay.classList.add("blue-text");
             break;
         case "Player 2 win!":
         case "Computer win!":
-            resultDisplay.classList.add("redText");
+            htmlResultDisplay.classList.add("red-text");
             break;        
     }
-    resultDisplay.textContent = (result);
-    if (level.disabled) {        
-        opponent1Display.textContent = "Player 1 score: "+opponent1Score;
-        opponent2Display.textContent = "Player 2 score: "+opponent2Score;
-        drawsDisplay.textContent = "Draws: "+drawScore;
+    htmlResultDisplay.textContent = (result);
+    if (htmlLevelButton.disabled) {        
+        htmlOpponent1Score.textContent = "Player 1 score: "+opponent1Score;
+        htmlOpponent2Score.textContent = "Player 2 score: "+opponent2Score;
+        htmlDrawDisplay.textContent = "Draws: "+drawScore;
     } else {
-        opponent1Display.textContent = "Your score: "+opponent1Score;
-        opponent2Display.textContent = "Computer's score: "+opponent2Score;
-        drawsDisplay.textContent = "Draws: "+drawScore;
+        htmlOpponent1Score.textContent = "Your score: "+opponent1Score;
+        htmlOpponent2Score.textContent = "Computer's score: "+opponent2Score;
+        htmlDrawDisplay.textContent = "Draws: "+drawScore;
     }
 }  
  
