@@ -15,9 +15,11 @@ let gate = false;
 //Determine if player vs computer or player vs player
 function handleChoice(opponentChoice) {
     if (level.disabled) {
+        resultDisplay.classList.remove("blueText","redText");      
         if (!gate) {
             opponent1Choice = opponentChoice;
             chosenResult.textContent = "Player 1: ❓ --- Player 2: ";
+            resultDisplay.textContent = "Who will win?";
             gate = true;
         } else {
             opponent2Choice = opponentChoice;   
@@ -35,14 +37,17 @@ function handleChoice(opponentChoice) {
 function aiDifficulty(status) {
     difficulty = status;
     level.textContent = status;
+    handleReset();
 }
 
 //AI process the opponent's input and response to it based on the diffuclty
 function aiChoice() {
     let chance;
+
     //Default AI response 👇
     opponent2Choice = choices[Math.floor(Math.random() * 3)];
-    //AI response would change depend on difficulty 👇
+
+    //AI current response would change depend on difficulty 👇
     switch (difficulty) {
         case "Easy":
             chance = Math.floor(Math.random() * 3) + 1;
@@ -121,7 +126,7 @@ function enableLevel() {
     handleReset();
 }
 
-//Reset and Display
+//Reset and Display most information dynamically
 function handleReset() {
     chosenResult.textContent = "You --- Opponent";
     result = "Who will win?";
@@ -136,7 +141,6 @@ function handleReset() {
 }
 function displayText() {
     resultDisplay.classList.remove("blueText","redText");
-
     switch (result) {
         case "Player 1 win!":
         case "You win!":
@@ -147,7 +151,6 @@ function displayText() {
             resultDisplay.classList.add("redText");
             break;        
     }
-
     resultDisplay.textContent = (result);
     if (level.disabled) {        
         opponent1Display.textContent = "Player 1 score: "+opponent1Score;
@@ -159,5 +162,6 @@ function displayText() {
         drawsDisplay.textContent = "Draws: "+drawScore;
     }
 }  
+ 
 
     
