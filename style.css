@@ -125,12 +125,14 @@ button:disabled {
     color: red;
 }
 
+/*UI adjustment for mobile*/
 @media screen and (max-width: 600px) {
     #maincontainer {
         width: 85%;
     }
     #subcontainer {
         width: 200px; 
+        height: 156px;
     }
     #modeLevelContainer {
         margin: 10px;
