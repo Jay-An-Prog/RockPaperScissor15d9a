@@ -115,15 +115,19 @@ function winCondition() {
 }
 
 //Player-Player or Player-Computer mode
-function disableLevel() {
-    document.getElementById("level").disabled = true;
-    mode.textContent = "2 Player";
-    handleReset(); 
-}
-function enableLevel() {
-    document.getElementById("level").disabled = false;
-    mode.textContent = "1 Player";
-    handleReset();
+function handleMode(modeType) {
+    switch (modeType) {
+        case "P-C":
+            document.getElementById("level").disabled = false;
+            mode.textContent = "1 Player";
+            handleReset();
+            break;
+        case "P-P":
+            document.getElementById("level").disabled = true;
+            mode.textContent = "2 Player";
+            handleReset();
+            break;
+    }  
 }
 
 //Reset and Display most information dynamically
