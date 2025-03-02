@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="maincontainer">
-        <h1 class="text">Rock Paper Scissor</h1>       
-        <p class="text">Select your ammo:</p>    
+    <div id="main-container">
+        <h1 class="text-style">Rock Paper Scissor</h1>       
+        <p class="text-style">Select your ammo:</p>    
 
         <span>
             <img src="images/rock.png" alt="This is a picture of rock hand" onclick="handleChoice('✊🏻')">    
@@ -17,18 +17,18 @@
             <img src="images/scissor.png" alt="This is a picture of scissor hand" onclick="handleChoice('✂️')">
         </span>     
 
-        <div id="modeLevelContainer">
+        <div id="mode-level-container">
             <div>
-                <button id="mode">1 Player</button>
-                <div id="content1" class="contents">
+                <button id="mode-button">1 Player</button>
+                <div id="drop-down1" class="drop-downs">
                     <h4 onclick="handleMode('P-C')">1 Player</h4>   
                     <h4 onclick="handleMode('P-P')">2 Player</h4>             
                 </div>
             </div>
         
             <div>
-                <button id="level">Normal</button>   
-                <div id="content2" class="contents">
+                <button id="level-button">Normal</button>   
+                <div id="drop-down2" class="drop-downs">
                     <h4 onclick="aiDifficulty('Easy')">Easy</h4>   
                     <h4 onclick="aiDifficulty('Normal')">Normal</h4>
                     <h4 onclick="aiDifficulty('Hard')">Hard</h4>   
@@ -37,15 +37,15 @@
             </div>
         </div>      
 
-        <p class="text" style="font-weight: bold" id="chosenResult">You --- Opponent</p>
-        <p class="text" style="font-weight: bold" id="resultDisplay">Who will win?</p>
+        <p class="text-style" style="font-weight: bold" id="chosen-display">You ⚔️ Opponent</p>
+        <p class="text-style" style="font-weight: bold" id="result-display">Who will win?</p>
 
-        <div id="subcontainer">
-            <h5 class="text" id="opponent1Display">Your score: 0</h5>
+        <div id="sub-container">
+            <h5 class="text-style" id="opponent1-display">Your score: 0</h5>
                 
-            <h5 class="text" id="opponent2Display">Opponent's score: 0</h5>
+            <h5 class="text-style" id="opponent2-display">Opponent's score: 0</h5>
             
-            <h5 class="text" id="drawsDisplay">Draws: 0</h5>
+            <h5 class="text-style" id="draw-display">Draws: 0</h5>
 
             <button onclick="handleReset()">Reset</button>    
         </div>
