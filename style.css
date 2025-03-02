@@ -14,7 +14,7 @@ body {
 }
 
 /*main container*/
-#maincontainer {
+#main-container {
     width: 700px;
     height: 100%;
     display: flex;
@@ -23,7 +23,7 @@ body {
 }
 
 /*container inside a main container*/
-#subcontainer {
+#sub-container {
     width: 100%;
     height: 148px;
     border: solid 1px;
@@ -34,7 +34,7 @@ body {
     align-items: center;
     background: rgb(7, 203, 218);
 }
-#subcontainer button {   
+#sub-container button {   
     width: 4em;
     border: solid 1px;
     border-radius: 8px;
@@ -43,25 +43,25 @@ body {
     transition: 0.2s ease;
     background: rgb(96, 255, 221); 
 }
-#subcontainer button:hover {
+#sub-container button:hover {
     background: rgb(3, 255, 200);
     cursor: pointer;
 } 
-#subcontainer button:active {
+#sub-container button:active {
     font-size: 0.8em;
 }
-#subcontainer .text {
+#sub-container .text-style {
     color: white;
 }
 
 /*mode & level container*/
-#modeLevelContainer {
+#mode-level-container {
     width: 280px;
     margin: 15px;
     display: flex;   
     gap: 80px;
 }
-#modeLevelContainer button {   
+#mode-level-container button {   
     width: 100px;
     border: solid 1px; 
     display: flex;
@@ -69,7 +69,7 @@ body {
     padding: 10px;
     background: rgb(96, 255, 221);
 }
-#modeLevelContainer .contents {
+#mode-level-container .drop-downs {
     display: none;
     position: absolute;
     font-size: 13px;
@@ -78,13 +78,13 @@ body {
     background: rgb(89, 231, 200);
     z-index: 10;
 }
-#mode:hover + #content1, #content1:hover {
+#mode-button:hover + #drop-down1, #drop-down1:hover {
     display: block;
 }
-#level:hover + #content2, #content2:hover {
+#level-button:hover + #drop-down2, #drop-down2:hover {
     display: block;
 }
-.contents h4:hover {
+.drop-downs h4:hover {
     background: rgb(67, 180, 156);
 }
 
@@ -101,7 +101,7 @@ img:hover {
 }
 
 /*text styling*/
-.text {
+.text-style {
     padding: 10px;
 }
 h1 {
@@ -118,31 +118,31 @@ button:disabled {
     opacity: 0.5; 
     cursor: not-allowed; 
 }
-.blueText {
+.blue-text {
     color: blue;
 }
-.redText {
+.red-text {
     color: red;
 }
 
 /*UI adjustment for mobile*/
 @media screen and (max-width: 600px) {
-    #maincontainer {
+    #main-container {
         width: 85%;
     }
-    #subcontainer {
+    #sub-container {
         width: 200px; 
         height: 156px;
     }
-    #modeLevelContainer {
+    #mode-level-container {
         margin: 10px;
         gap: 30px;
         justify-content: center;
     }
-    #modeLevelContainer button { 
+    #mode-level-container button { 
         width: 90px;
     }
-    #modeLevelContainer .contents {
+    #mode-level-container .drop-downs {
         min-width: 90px;
     }
     h1 {
