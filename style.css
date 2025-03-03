@@ -63,7 +63,9 @@ body {
 }
 #mode-level-container button {   
     width: 100px;
-    border: solid 1px; 
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -73,6 +75,7 @@ body {
     display: none;
     position: absolute;
     font-size: 13px;
+    border-radius: 10px;
     box-shadow: 2px 2px 5px black;
     min-width: 100px;
     background: rgb(89, 231, 200);
