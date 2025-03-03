@@ -31,7 +31,7 @@ function handleChoice(opponentChoice) {
             opponent1Choice = opponentChoice;
             isGateOpen = true;
             
-            htmlChosenDisplay.textContent = "Player 1: ❓"+"\u00A0".repeat(6)+" Player 2: "+"\u00A0".repeat(4);
+            htmlChosenDisplay.textContent = "Player 1: ❓"+"\u00A0".repeat(6)+" Player 2: 🤔";
             htmlResultDisplay.textContent = "Who will win?";          
         } else {                         
             opponent2Choice = opponentChoice;            
