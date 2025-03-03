@@ -10,7 +10,7 @@ let opponent2Choice;
 
 let difficulty = "Normal";
 
-let isGateOpen = false;
+let isGateOpen = true;
 
 //HTML-related variables
 let htmlModeButton = document.getElementById("mode-button");
@@ -27,15 +27,15 @@ let htmlDrawDisplay = document.getElementById("draw-display");
 function handleChoice(opponentChoice) {
     if (htmlLevelButton.disabled) {
         htmlResultDisplay.classList.remove("blue-text","red-text");      
-        if (!isGateOpen) {         
+        if (isGateOpen) {         
             opponent1Choice = opponentChoice;
-            isGateOpen = true;
+            isGateOpen = false;
             
             htmlChosenDisplay.textContent = "Player 1: ❓"+"\u00A0".repeat(6)+" Player 2: 🤔";
             htmlResultDisplay.textContent = "Who will win?";          
         } else {                         
             opponent2Choice = opponentChoice;            
-            isGateOpen = false;
+            isGateOpen = true;
             
             htmlChosenDisplay.textContent = "Player 1: "+opponent1Choice+"\u00A0".repeat(6)+" Player 2: "+opponent2Choice;
             winCondition();
@@ -150,7 +150,7 @@ function handleReset() {
     opponent2Score = 0;
     drawScore = 0;
 
-    isGateOpen = false;
+    isGateOpen = true;
 
     result = "Who will win?";
 
